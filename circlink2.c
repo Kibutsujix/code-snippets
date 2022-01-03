@@ -106,6 +106,7 @@ int main()
     int ele,count,ch;
     for(;;)
     {
+        printf("1.insert front\n2.insert at certain location\n3.display\n4.exit\n");
         printf("enter choice : ");
         scanf("%d",&ch);
         switch(ch)
