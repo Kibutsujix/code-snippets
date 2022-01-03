@@ -20,6 +20,7 @@ int main()
     int ch,ele;
     for(;;)
     {
+        printf("enter operation to be performed\n");
         printf("1.insert front\n2.insert rear\n3.delete front\n4.delete rear\n5.display\n6.exit\n");
         scanf("%d",&ch);
         switch(ch)
@@ -144,7 +145,7 @@ void display(NODE *last)
     temp = last->link;
     while(temp!=last)
     {
-        printf("%d\n",temp->data);
+        printf("%d-->",temp->data);
         temp = temp->link;
     }
     printf("%d\n",temp->data);
