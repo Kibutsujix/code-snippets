@@ -209,6 +209,40 @@ node *delloc(node *last)
     }
 }
 //concatenation code
+node *concat(node *last)
+{
+    node *second = NULL,*temp;
+    int n,i=0,ele,ch1;
+    printf("enter number of nodes to inserted : ");
+    scanf("%d",&n);
+    while(i!=n)
+    {
+        printf("enter element : ");
+        scanf("%d",&ele);
+        second = insert_front(ele,second);
+        i++;
+    }
+    printf("what type of concatenation do u want\n1. first --> second\n\tor\n2. second --> first\n");
+    scanf("%d",&ch1);
+    switch(ch1)
+    {
+        case 1 :
+        temp = last->link;
+        last->link = second->link;
+        second->link = temp;
+        return second;
+        break;
+        case 2 :
+        temp = second->link;
+        second->link = last->link;
+        last->link = temp;
+        return last;
+        break;
+        default : 
+        printf("enter either 1 or 2 only\n");
+        break;
+    }
+}
 //driver code
 int main()
 {
@@ -216,7 +250,7 @@ int main()
     int ele,count,ch;
     for(;;)
     {
-        printf("1. insert front\n2. insert at certain location\n3. insert rear\n4. display\n5. delete front\n6. delete rear\n7. delete at certain location\n8. exit\n");
+        printf("1. insert front\n2. insert at certain location\n3. insert rear\n4. display\n5. delete front\n6. delete rear\n7. delete at certain location\n8. concatenate two linked lists\n9. exit\n");
         printf("enter choice : ");
         scanf("%d",&ch);
         switch(ch)
@@ -246,11 +280,14 @@ int main()
             break;
             case 7:
             last = delloc(last);
-            break;    
+            break;
             case 8 :
+            last = concat(last);
+            break;    
+            case 9 :
             exit(0);
             default : 
-            printf("enter input from (1-7) only");
+            printf("enter input from (1-9) only");
             break;
         }
     }
