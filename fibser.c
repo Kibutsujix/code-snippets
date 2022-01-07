@@ -1,8 +1,9 @@
-// nth fibonacci number
+// fibonacci series
+
 #include<stdio.h>
 #include<stdlib.h>
 
-//recursive function
+// recursive function
 int fib(int n)
 {
     if(n==0)
@@ -15,14 +16,18 @@ int fib(int n)
     }
     else
     {
-        return (fib(n-1) + fib(n-2));
+        return (fib(n-1)+fib(n-2));
     }
 }
-//driver code
+
 void main()
 {
-    int n;
+    int i,n;
     printf("enter the value of n : ");
     scanf("%d",&n);
-    printf("the %dth fibonacci number is %d.\n",n,fib(n));
+    for(i=0;i<n;i++)
+    {
+        printf("%d\t",fib(i));
+    }
+    printf("\n");
 }
