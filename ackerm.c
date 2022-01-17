@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int A(int m,int n)
+long long int A(long long int m,long long int n)
 {
     if(m==0)
     {
@@ -22,9 +22,9 @@ int A(int m,int n)
 //driver code
 void main()
 {
-    int m,n,res;
+    long long int m,n,res;
     printf("enter value of (m,n) : ");
-    scanf("%d%d",&m,&n);
+    scanf("%lld%lld",&m,&n);
     res = A(m,n);
-    printf("A(%d,%d) is %d\n",m,n,res);
+    printf("A(%lld,%lld) is %lld\n",m,n,res);
 }
