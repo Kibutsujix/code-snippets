@@ -14,23 +14,25 @@ typedef struct BST
 //function to check dupes in the key entries
 int remove_duplicate(int arr[], int n)
 {
-    if (n == 0 || n == 1)
-        return n;
-
-    int temp[n];
-
-    int j = 0;
-    int i;
-    for (i = 0; i < n - 1; i++)
-        if (arr[i] != arr[i + 1])
-        temp[j++] = arr[i];
-    temp[j++] = arr[n - 1];
-
-    for (i = 0; i < j; i++)
-        arr[i] = temp[i];
-    
-    return j;
+    int i,j,k;
+    for (i = 0; i < n; i++)
+    {
+        for(j = i + 1; j < n; j++)
+        {
+            if(arr[i] == arr[j])
+            {
+                for(k = j; k < n; k++)
+                {
+                    arr[k] = arr[k + 1];
+                }
+                n--;
+                j--;
+            }
+        }
+    }
+    return n;
 }
+
 bst *getnode()
 {
     bst *temp;
@@ -80,11 +82,30 @@ void inorder(bst* root)
     }
 }
 
+void preorder(bst *root)
+{
+    if(root!=NULL)
+    {
+        printf("%d\n",root->key);
+        preorder(root->leftlink);
+        preorder(root->rightlink);
+    }
+}
+
+void postorder(bst *root)
+{
+    if(root!=NULL)
+    {
+        postorder(root->leftlink);
+        postorder(root->rightlink);
+        printf("%d\n",root->key);
+    }
+}
 //driver code
 void main()
 {
     bst *root = NULL;
-    int arr[size],i,n;
+    int arr[size],i,n,ch;
     printf("enter number of elements : ");
     scanf("%d",&n);
     for(i=0;i<n;i++)
@@ -93,8 +114,24 @@ void main()
     }
     n = remove_duplicate(arr,n);
     root = define_bst(n,arr,root);
-    printf("The inorder traversal of BST is : \n");
-    inorder(root);
+    for(;;){
+        printf("Enter\n1. inorder traversal\n2. preorder traversal\n3. postorder travesal\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1 :
+            inorder(root);
+            break;
+            case 2 :
+            preorder(root);
+            break;
+            case 3 :
+            postorder(root);
+            break;
+            default : printf("Enter values from (1-3) only \n");
+            break;
+        }
+    }
 }
 
 /*
