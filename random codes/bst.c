@@ -132,6 +132,8 @@ void main()
             break;
         }
     }
+    free(root);
+    
 }
 
 /*
