@@ -1,4 +1,4 @@
-// grpah program
+// graph program
 
 #include<stdio.h>
 #include<stdlib.h>
