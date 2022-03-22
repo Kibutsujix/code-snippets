@@ -21,22 +21,20 @@ int main()
 	{
 		printf("enter your choice from \n1. insertion\n2. deletion\n3. traverse\n4. quit\n");
 		scanf("%d",&choice);
+		switch(choice)
 		{
-			switch(choice)
-			{
-				case 1 : 
-				insert_arr(&n,arr);				// &n because n value will change due to insertion or deletion
-				break;
-				case 2 :
-				delete_arr(&n,arr);
-				break;
-				case 3 :
-				traverse(n,arr);
-				break;
-				case 4 :
-				exit(0);
-				default : printf("enter proper input (1-4) ! \n");
-			}
+			case 1 : 
+			insert_arr(&n,arr);				// &n because n value will change due to insertion or deletion
+			break;
+			case 2 :
+			delete_arr(&n,arr);
+			break;
+			case 3 :
+			traverse(n,arr);
+			break;
+			case 4 :
+			exit(0);
+			default : printf("enter proper input (1-4) ! \n");
 		}
 	}
 	return 0;
