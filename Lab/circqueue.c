@@ -59,7 +59,7 @@ void cq_insert(char ele,int *r,char cq[],int *count)
 {
     *r = ((*r)+1)%size;
     cq[*r] = ele;
-    *count = *count -1;
+    *count = *count +1;
 }
 
 char cq_delete(int *f,char cq[],int *count)
