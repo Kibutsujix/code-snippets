@@ -11,7 +11,7 @@ typedef struct EMPLOYEE
 void main()
 {
 	emp E;
-	FILE *fp;
+	FILE *fp; // FILE is defined in stdio.h
 	int n, i, s=(2*sizeof(int)+20), minusone=-1, choice, flag, index, indexcopy, id;
 	printf("Enter number of records:\n");
 	scanf("%d", &n);
