@@ -16,11 +16,11 @@ class tsp
 				cost[i][j] = scan.nextInt();
 			s[i] = 1;
 		}
-		int a = g(1, n - 1, cost, s, n);
-		System.out.println("The minimum cost is optimal tour is "+a);
-		int b = approx(cost, n);
-		int approx_val = ((b * 100) / a) - 100;
-		System.out.println("The approximation tour is "+approx_val);
+		// recurrence relation 3
+		int a = g(1, n - 1, cost, s, n); 
+
+		System.out.println("The optimal tour is "+a);
+		scan.close();
 	}
 	
 	static int g(int i, int s, int cost[][], int set[], int n)
@@ -31,11 +31,12 @@ class tsp
 			newset[j] = set[j];
 		newset[i] = 0;
 		if(s == 0)
-			return cost[i][1];
+			return cost[i][1]; // recurrence relation 1
 		for(int k = 0, j = 2; k < s; j++)
 		{
-			if(newset[j] != 0) //CHECK THIS
+			if(newset[j] != 0)
 			{
+				// recurrence relation 2
 				selected[k] = cost[i][j] + g(j,s-1,cost,newset,n);
 				k++;
 			}
@@ -50,36 +51,7 @@ class tsp
 		}
 		return min;
 	}
-	
-	static int approx(int cost[][], int n)
-	{
-		int visited[] = new int[n + 1];
-		for(int i = 1; i <= n; i++)
-		{
-			visited[i]=0;
-		}
-		visited[1] = 1;
-		int dist = 0;
-		int next = 0;
-		for(int i = 1; i < n; i++)
-		{
-			int min = 999;
-			for(int j = 1; j <= n; j++)
-			{
-				if((cost[i][j] != 0) && (cost[i][j] < min) && (visited[j] == 0))
-				{
-					next=j;
-					min=cost[i][j];
-				}
-			}
-			dist=dist+min;
-			visited[next]=1;
-		}
-		dist = dist + cost[next][1];
-		System.out.println("Minimum cost using approximation algorithm is "+dist);
-		return dist;
-	}
-	
+		
 }
 
 
