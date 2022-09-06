@@ -12,7 +12,7 @@ class MergeSort
 		System.out.println("Enter no of elements");
 		int n=scan.nextInt();
 		int[] a=new int[n];
-System.out.println(" Enter the choice 1: Best Case  2: Average Case  3:  Worst Case");
+System.out.println(" Enter the choice 1: Best Case\n 2: Average Case\n 3:  Worst Case");
 		int ch=scan.nextInt();
 		switch(ch)
 		{
@@ -26,7 +26,7 @@ System.out.println(" Enter the choice 1: Best Case  2: Average Case  3:  Worst C
 				break;
 		   	case 3: System.out.println(" Worst Case");
 					for(int i=0;i<n;i++)
-						a[i]=scan.nextInt();
+						a[i]= n-i;
 						//a[i]=n-i;
 				break;		
 			
@@ -38,8 +38,8 @@ System.out.println(" Enter the choice 1: Best Case  2: Average Case  3:  Worst C
 		// recording the end time
 		stop=System.nanoTime();
 		display(a);
-System.out.println("\nTime taken to sort " +a.length+ " elements =" +(stop-start));
-
+		System.out.println("\nTime taken to sort " +a.length+ " elements =" +(stop-start));
+		scan.close();
 	}// end main
 		
 	private static void display(int[] a)
